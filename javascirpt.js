@@ -8,16 +8,15 @@ let winningStatements = [
 function getComputerChoice() {
     return (Math.round(Math.random() * 10) % 3);
 }
-//log the result to the console via the matrix
+//play a round of rps
 function play(computerChoice, playerChoice) {
     console.log(winningStatements[playerChoice][computerChoice])
 }
-//play five rounds of RPS
+//initiate a round of rps upon selecting a choice
 function game() {
-    let playerChoice;
-    for (i = 0; i < 5; i++) {
-    playerChoice = prompt('rock, paper, or sissors?').toLowerCase()
-    playerChoice == 'rock'? playerChoice = 0: playerChoice == 'paper'? playerChoice = 1: playerChoice = 2;
+    let playerChoice = this.dataset.number;
     play(getComputerChoice(), playerChoice)
-    }
 }
+//detect player selecting a choice
+let buttons = document.querySelectorAll('button')
+buttons.forEach(button => {button.addEventListener("click", game)});
