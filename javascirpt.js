@@ -17,7 +17,14 @@ function getComputerChoice() {
 function play(computerChoice, playerChoice) {
     statement = winningStatements[playerChoice][computerChoice];
     statement.substring(4,7) == "win"? pscore++: statement.substring(4,8) == "lose"? cscore++: null;
+    if (pscore < 5 && cscore < 5) {
     div.innerHTML = `${statement} <br> player score: ${pscore} <br> computer score: ${cscore}`
+    }
+    else {
+        pscore == 5? div.innerHTML = "you won!": div.innerHTML = "computer won!";
+        pscore = 0;
+        cscore = 0;
+    }
 }
 //initiate a round of rps upon selecting a choice
 function game() {
